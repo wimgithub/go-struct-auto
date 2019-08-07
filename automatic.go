@@ -150,7 +150,7 @@ func main(){
 
 	fmt.Println("End  SUCCESS")
 }
-
+/*
 //首字母大写
 func strFirstToUpper(str string) string {
 	var upperStr string
@@ -169,6 +169,26 @@ func strFirstToUpper(str string) string {
 		}
 	}
 	return upperStr
+}
+*/
+//首字母大写 _修改为大驼峰 (改)
+func strFirstToUpper(src string) string {
+	temp := strings.Split(src, "_") // 有下划线的，需要拆分
+	var str string
+	for i := 0; i < len(temp); i++ {
+		b := []rune(temp[i])
+		for j := 0; j < len(b); j++ {
+			if j == 0 {
+				// 首字母大写转换
+				b[j] -= 32
+				str += string(b[j])
+			} else {
+				str += string(b[j])
+			}
+		}
+	}
+
+	return str
 }
 
 //判断用户输入
